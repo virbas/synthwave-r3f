@@ -1,6 +1,3 @@
-import { useMemo, useState, useEffect } from "react";
-
-
 const audioStyles = {
     zIndex: 100,
     bottom: "28px",
@@ -15,22 +12,7 @@ const audioStyles = {
   } as const;
   
   
-export default function AudioButton() {
-    const audio = useMemo(() => new Audio("WHITE BAT AUDIO .mp3"), []);
-    const [playing, setPlaying] = useState(false);
-
-    useEffect(() => {
-        if (playing) {
-            audio.play();
-        } else {
-            audio.pause();
-        }
-
-        return () => {
-            audio.pause();
-        };
-    }, [playing]);
-
+export default function AudioButton({playing, setPlaying}: {playing: boolean, setPlaying: (playing: boolean) => void}) {
     return (
         <div style={audioStyles} onClick={() => setPlaying(!playing)}>
             <img src={playing ? "sound-medium-icon.svg" : "sound-off-icon.svg"} style={{width: "100%", height: "100%"}} />
