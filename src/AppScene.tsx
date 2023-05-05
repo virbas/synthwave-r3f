@@ -55,7 +55,7 @@ export default function AppScene() {
       >
         <FloatingText  position={new THREE.Vector3(-2.5, -0.2, -0.5)} />
       </PerspectiveCamera>
-      <OrbitControls target={[0, 1, -1]} enablePan={true} enableZoom={true} />
+      <OrbitControls target={[0, 1, -1]} enablePan={false} enableZoom={false} />
       <ambientLight />
       <Hands modelRight="right.glb" modelLeft="left.glb" />
       <Controllers />
